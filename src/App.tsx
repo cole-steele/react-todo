@@ -1,34 +1,41 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import TaskCard from './components/TaskCard.tsx'
 import './App.css'
 
+
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [todoList, setTodoList] = useState([
+    {
+      id: 1,
+      title: 'Start here!',
+      date: '10:30 AM, 03/19/2026'
+    }
+  ])
+
+  function addTask() {
+    setTodoList(prev => [...prev, { id: todoList.length + 1, title: 'test', date: 'test' }])
+  }
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <main>
+      <h1 className="title-h1">TODO LIST</h1>
+      <div className="active-container">
+        <button className="addtask-btn" onClick={ () => addTask() }>Add Task</button>
+        <select name="sort-dropdown">
+          <option value="all">All</option>
+          <option value="newest">Newest</option>
+          <option value="oldest">Oldest</option>
+        </select>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+
+      <div className="task-container">
+        {todoList.map(todo => (
+          <TaskCard id={todo.id} title={todo.title} date={todo.date} />
+        ))}
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </main>
   )
 }
 
