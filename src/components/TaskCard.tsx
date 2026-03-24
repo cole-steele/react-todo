@@ -5,9 +5,11 @@ interface TaskCardProps {
   id: number,
   title: string,
   date: string
+  onDelete: () => void
+  onEdit: () => void
 }
 
-export default function TaskCard( {id, title, date} : TaskCardProps) {
+export default function TaskCard( {title, date, onDelete, onEdit} : TaskCardProps) {
   return (
     <div className="task-card">
       <div className="left-card-content">
@@ -18,8 +20,8 @@ export default function TaskCard( {id, title, date} : TaskCardProps) {
         </div>
       </div>
       <div className="right-card-content">
-        <button className="trash-btn"> <FaTrash /> </button>
-        <button className="edit-btn"> <FaPencilAlt /> </button>
+        <button className="trash-btn" onClick={onDelete}> <FaTrash /> </button>
+        <button className="edit-btn" onClick={onEdit}> <FaPencilAlt /> </button>
       </div>
     </div>
   )
