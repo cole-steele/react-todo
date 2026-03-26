@@ -42,6 +42,11 @@ main {
   margin-bottom: 1rem;
 }
 
+.addtask-btn:hover {
+  cursor: pointer;
+  background-color: color-mix(in srgb, var(--primary) 80%, black);
+}
+
 .addtask-btn {
   background-color: var(--primary);
   border: none;
@@ -181,10 +186,43 @@ select {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  text-align: right;
+  background-color: var(--primary);
+  border: none;
+  padding: 0.4em 0.75em;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-close-btn:hover {
+  background-color: color-mix(in srgb, var(--primary) 80%, black);
+}
+
+.modal-input-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .modal-input {
-  margin-right: 0.5rem;
-  height: 1.25rem;
+  height: 1.5rem;
+}
+
+.modal-submit-btn {
+  background-color: var(--primary);
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.modal-submit-btn:hover {
+  background-color: color-mix(in srgb, var(--primary) 80%, black);
+  cursor: pointer;
 }

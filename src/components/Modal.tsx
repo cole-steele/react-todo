@@ -18,6 +18,7 @@ export default function Modal( {onClose, onSave, editingTask}: ModalProps) {
     
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
+        if (!title.trim()) return
         onSave(title)
     }
 
@@ -27,8 +28,10 @@ export default function Modal( {onClose, onSave, editingTask}: ModalProps) {
                 <button className="modal-close-btn" onClick={() => onClose()}>X</button>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="task-title">Enter task title:</label>
-                    <input autoFocus id="task-title" placeholder="Ex. Buy apples" className="modal-input" value={title} onChange={(e) => setTitle(e.target.value)} />
-                    <button type="submit">Submit</button>
+                    <div className="modal-input-row">
+                        <input autoFocus id="task-title" placeholder="Ex. Buy apples" className="modal-input" value={title} onChange={(e) => setTitle(e.target.value)} />
+                        <button type="submit" className="modal-submit-btn">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>
