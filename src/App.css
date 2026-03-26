@@ -17,8 +17,10 @@ body {
   margin: 2rem;
 }
 
-.main {
+main {
   width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   background-color: var(--background)
@@ -89,17 +91,22 @@ select {
   align-items: start;
   justify-content: start;
   gap: .25rem;
+  min-width: 0;
 }
 
 .task-card-text {
   display: flex;
   flex-direction: column;
   text-align: left;
+  min-width: 0;
 }
 
 .card-title {
   font-size: 1rem;
   margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .card-date {
@@ -130,6 +137,16 @@ select {
   gap: 0.25rem;
 }
 
+.welcome {
+  background-color: color-mix(in srgb, var(--primary) 40%, white);
+  padding: .5rem;
+  border-radius: 6px;
+  text-align: center;
+  color: var(--text);
+  font-size: 1rem;
+  margin: 0;
+}
+
 /* Modal */
 .modal-overlay {
   position: fixed;
@@ -153,6 +170,13 @@ select {
   width: 400px;
 }
 
+.modal-div form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
 .modal-close-btn {
   position: absolute;
   top: 1rem;
@@ -160,3 +184,7 @@ select {
   text-align: right;
 }
 
+.modal-input {
+  margin-right: 0.5rem;
+  height: 1.25rem;
+}

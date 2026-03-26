@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 interface ModalProps {
     onClose: () => void
     onSave: (title: string) => void
@@ -6,9 +6,16 @@ interface ModalProps {
 }
 
 export default function Modal( {onClose, onSave, editingTask}: ModalProps) {
-
     const [title, setTitle] = useState(editingTask ? editingTask.title : '')
 
+    useEffect(() => {
+        function handleKeyDown(e: KeyboardEvent) {
+            if (e.key === 'Escape') onClose()
+        }
+        window.addEventListener('keydown', handleKeyDown)
+        return () => window.removeEventListener('keydown', handleKeyDown)
+    }, [])
+    
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
         onSave(title)
@@ -19,7 +26,8 @@ export default function Modal( {onClose, onSave, editingTask}: ModalProps) {
             <div className="modal-div">
                 <button className="modal-close-btn" onClick={() => onClose()}>X</button>
                 <form onSubmit={handleSubmit}>
-                    <input value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <label htmlFor="task-title">Enter task title:</label>
+                    <input autoFocus id="task-title" placeholder="Ex. Buy apples" className="modal-input" value={title} onChange={(e) => setTitle(e.target.value)} />
                     <button type="submit">Submit</button>
                 </form>
             </div>
