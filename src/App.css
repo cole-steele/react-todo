@@ -17,6 +17,12 @@ body {
   margin: 2rem;
 }
 
+@media (max-width: 480px) {
+  body {
+    margin: 1rem;
+  }
+}
+
 main {
   width: 100%;
   max-width: 480px;
@@ -65,10 +71,11 @@ select:hover {
 
 select {
   appearance: none;
+  -webkit-appearance: none;
   background-color: color-mix(in srgb, var(--primary) 40%, white);
   padding-left: 0.5rem;
   border-radius: 4px;
-  width: 200px;
+  width: auto;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.75em center;
@@ -213,6 +220,7 @@ select {
 
 .modal-input {
   height: 1.5rem;
+  font-size: 16px;
 }
 
 .modal-submit-btn {
