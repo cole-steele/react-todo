@@ -44,7 +44,7 @@ main {
 
 .addtask-btn:hover {
   cursor: pointer;
-  background-color: color-mix(in srgb, var(--primary) 80%, black);
+  background-color: color-mix(in srgb, var(--primary) 90%, black);
 }
 
 .addtask-btn {
@@ -56,6 +56,11 @@ main {
   font-size: 1rem;
   font-weight: bold;
   letter-spacing: 1px;
+}
+
+select:hover {
+  cursor: pointer;
+  background-color: color-mix(in srgb, var(--primary) 50%, white);
 }
 
 select {
@@ -148,7 +153,7 @@ select {
   border-radius: 6px;
   text-align: center;
   color: var(--text);
-  font-size: 1rem;
+  font-size: .95rem;
   margin: 0;
 }
 
@@ -197,7 +202,7 @@ select {
 }
 
 .modal-close-btn:hover {
-  background-color: color-mix(in srgb, var(--primary) 80%, black);
+  background-color: color-mix(in srgb, var(--primary) 90%, black);
 }
 
 .modal-input-row {
